@@ -1,3 +1,5 @@
-FROM mysql:5.5
+From tomcat
 
-ENV MYSQL_ROOT_PASSWORD=root
+ADD ./target/*.war /usr/local/tomcat/webapps/
+
+Expose 8080 
