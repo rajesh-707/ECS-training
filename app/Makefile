@@ -19,7 +19,7 @@ build-run-tomcat:
 rm-all:
 	make rm-tomcat
 
-#make push-image sandot/tomcat
+# make push-image DOCKER_HUB_REPO=sandyot/tomcat
 push-image:
 	docker login
 	docker tag opstree/tomcat $(DOCKER_HUB_REPO)
