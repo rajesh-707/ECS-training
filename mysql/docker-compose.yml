@@ -1,6 +1,6 @@
 version: '2'
 services:
   app:
-    images: sandyot/db
+    image: sandyot/db
     ports:
       - "3306:3306"

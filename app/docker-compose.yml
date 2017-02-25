@@ -1,6 +1,6 @@
 version: '2'
 services:
   app:
-    images: sandyot/tomcat
+    image: sandyot/tomcat
     ports:
       - "80:8080"
