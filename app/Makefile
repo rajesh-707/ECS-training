@@ -9,7 +9,7 @@ rm-tomcat:
 
 run-tomcat:
 	make rm-tomcat
-	docker run -it --rm -P --name tomcat --link database:database  opstree/tomcat
+	docker run -it --rm -P --name tomcat --link database:database opstree/tomcat
 
 build-run-tomcat:
 	make build-tomcat
@@ -19,7 +19,7 @@ build-run-tomcat:
 rm-all:
 	make rm-tomcat
 
-# make push-image DOCKER_HUB_REPO=sandyot/tomcat
+#make push-image DOCKER_HUB_REPO=sandyot/tomcat
 push-image:
 	docker login
 	docker tag opstree/tomcat $(DOCKER_HUB_REPO)

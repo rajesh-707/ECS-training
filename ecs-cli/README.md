@@ -1,31 +1,23 @@
 # MAKE COMMANDS
 
-BUILD DOCKER IMAGE
+- BUILD DOCKER IMAGE
+  - ```make build```
+- RUN CONTAINER
+  - ```make run REGION=us-west-1 AWS_ACCESS_KEY_ID= AWS_SECRET_ACCESS_KEY CLUSTER_NAME=ecs-training```
 
-* make build
+# ECS-CLI Demo
+- Setup ECS-CLI
+  - ```ecs-cli configure --region ${REGION} --access-key ${AWS_ACCESS_KEY_ID} --secret-key ${AWS_SECRET_ACCESS_KEY} --cluster ${CLUSTER_NAME}```
+- CREATE A CLUSTER
+  - ```ecs-cli up --keypair <keypair> --capability-iam --size <instance count> --instance-type <instance type> --vpc <vpc-id> --subnets <list of subnet ids> --security-group <security-group-ids>```
+  - ```ecs-cli up --keypair sandy-us-west-1 --capability-iam --size 3 --instance-type t2.micro```
+- DEPLOY COMPOSE FILE TO CLUSTER
+  - ecs-cli compose --file docker-compose.yml up
+  - ecs-cli compose --file ../app/docker-compose.yml up
+  - ecs-cli compose --file ../db/docker-compose.yml up
 
-RUN CONTAINER
-
-* make run
-
-CONFIGURE CONTAINER WITH ECS-CLI
-
-* make configure
-
-
-# ECS-CLI COMMANDS
-
-CREATE A CLUSTER
-
- * ecs-cli up --keypair <keypair> --capability-iam --size <instance count> --instance-type <instance type> --vpc <vpc-id> --subnets <list of subnet ids> --security-group <security-group-ids>
-
-DEPLOY COMPOSE FILE TO CLUSTER
-
-* ecs-cli compose --file docker-compose.yml up
-
-VIEW RUNNING CONTAINER IN CLUSTER
-
-* ecs-cli ps
+- VIEW RUNNING CONTAINER IN CLUSTER
+  - ecs-cli ps
 
 SCALE YOUR APPLICATION
 
